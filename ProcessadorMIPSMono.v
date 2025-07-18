@@ -1,24 +1,43 @@
-module ProcessadorMIPSMono(address, i_out);
-// Parâmetro do tamanho da memória
-	parameter TAMANHO_MEMORIA = 64;
-
-// Descrição das entradas e saídas:
-	input wire [31:0] address;
-	output wire [31:0] i_out;
-	
-// Declaração da memória ROM
-	reg [31:0] memoria_ROM [0:TAMANHO_MEMORIA - 1];
-	
-// Inicialização da memória com a leitura do arquivo instruction.list
 /*
-O bloco "initial begin ... end" é executado uma única vez no início da simulação. Dentro dele temos o $readmemb, que é uma função do Verilog
-para ler arquivos com binários. Esses dados vão preencher o vetor memoria_ROM
+Arquitetura e Organização de Computadores 2025.1 - Projeto da 2ª VA
+
+Integrantes do grupo:
+1. Giovanna Neves
+2. João Pedro Oliveira da Silva
+3. José Albérico
+4. Lucas Lins
+
+Conteúdo do arquivo:
+
+Este arquivo contém o Program Counter (PC), um registrador ... (a terminar)
 */
-	initial begin
-		$readmemb("instruction.list", memoria_ROM);
-	end
+
+module ProcessadorMIPSMono (ReadAddr1, ReadAddr2, ReadData1, ReadData2, Clock, WriteAddr, WriteData, RegWrite, Reset);
 	
-// Leitura assíncrona da memória ROM, indexando por address dividido por 4
-    assign i_out = memoria_ROM[address >> 2];
+// Descrição das entradas e saídas
+	input wire Clock, Reset, RegWrite;
+	input wire [4:0] ReadAddr1, ReadAddr2, WriteAddr;
+	input wire [31:0] WriteData; 
+	output wire [31:0] ReadData1, ReadData2;
 	
+// Banco de Registradores: 32 registradores de 32 bits
+   reg [31:0] regs [0:31];
+	
+// Inteiro para o for que zerará os registradores
+	integer i;
+	
+// Saídas para leitura dos registradores
+   assign ReadData1 = (ReadAddr1 == 5'b0) ? 32'b0 : regs[ReadAddr1];
+   assign ReadData2 = (ReadAddr2 == 5'b0) ? 32'b0 : regs[ReadAddr2];
+	
+	always @(posedge Clock or posedge Reset) begin
+		if (Reset) begin
+			for (i = 0; i < 32; i = i + 1)
+				regs[i] = 32'b0;
+		end else if (RegWrite) begin
+			if (WriteAddr != 5'b0)
+				regs[WriteAddr] <= WriteData;
+		end
+	end	
+
 endmodule

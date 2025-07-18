@@ -32,6 +32,6 @@ para ler arquivos com binários. Esses dados vão preencher o vetor memoria_ROM
 	end
 	
 // Leitura assíncrona da memória ROM, indexando por address dividido por 4
-    assign i_out = memoria_ROM[address >> 2];
+	assign i_out = memoria_ROM[address >> 2];
 
 endmodule
