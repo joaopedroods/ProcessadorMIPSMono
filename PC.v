@@ -14,11 +14,13 @@ Este arquivo contém o Program Counter (PC), um registrador ... (a terminar)
 
 module PC(clock, nextPC, PC);
 
+// Descrição das entradas e saídas
 	input wire clock;
 	input wire [31:0] nextPC;
-	output reg [31:0] PC;
+	output reg [31:0] PC;	
 	
-	always @(posedge clock) begin
+// Descrição do comportamento
+	always @(posedge clock) begin // Atualização do PC na borda de subida do clock
 		PC <= nextPC;
 	end
 
