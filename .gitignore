@@ -1,0 +1,37 @@
+# Ignorar arquivos temporários do ModelSim/QuestaSim
+transcript
+*.log
+*.wlf
+work/
+vsim.wlf
+
+# Ignorar arquivos de bloqueio do Questasim
+*.rdr.flock
+
+# Ignorar arquivos temporários de projetos
+*.vcd
+*.vpd
+*.jou
+*.pb
+*.fdb
+*.rpt
+*.bak
+*.tmp
+*.orig
+*.swp
+
+# Ignorar diretórios específicos
+db/
+simulation/
+output/
+temp/
+
+# Ignorar arquivos de IDEs
+.vscode/
+*.user
+*.suo
+*.ide
+*.pro.user
+
+# Ignorar backups
+*~
