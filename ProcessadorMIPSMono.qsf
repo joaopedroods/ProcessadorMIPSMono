@@ -56,4 +56,6 @@ set_global_assignment -name VERILOG_FILE ProcessadorMIPSMono.v
 set_global_assignment -name VECTOR_WAVEFORM_FILE Waveform.vwf
 set_global_assignment -name VERILOG_FILE i_mem.v
 set_global_assignment -name VERILOG_FILE regfile.v
+set_global_assignment -name VERILOG_FILE ula.v
+set_global_assignment -name VERILOG_FILE ula_ctrl.v
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

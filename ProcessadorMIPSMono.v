@@ -8,36 +8,45 @@ Integrantes do grupo:
 4. Lucas Lins
 
 Conteúdo do arquivo:
-
-Este arquivo contém o Program Counter (PC), um registrador ... (a terminar)
 */
 
-module ProcessadorMIPSMono (ReadAddr1, ReadAddr2, ReadData1, ReadData2, Clock, WriteAddr, WriteData, RegWrite, Reset);
-	
-// Descrição das entradas e saídas
-	input wire Clock, Reset, RegWrite;
-	input wire [4:0] ReadAddr1, ReadAddr2, WriteAddr;
-	input wire [31:0] WriteData; 
-	output wire [31:0] ReadData1, ReadData2;
-	
-// Banco de Registradores: 32 registradores de 32 bits
-   reg [31:0] regs [0:31];
-	
-// Inteiro para o for que zerará os registradores
-	integer i;
-	
-// Saídas para leitura dos registradores
-   assign ReadData1 = (ReadAddr1 == 5'b0) ? 32'b0 : regs[ReadAddr1];
-   assign ReadData2 = (ReadAddr2 == 5'b0) ? 32'b0 : regs[ReadAddr2];
-	
-	always @(posedge Clock or posedge Reset) begin
-		if (Reset) begin
-			for (i = 0; i < 32; i = i + 1)
-				regs[i] = 32'b0;
-		end else if (RegWrite) begin
-			if (WriteAddr != 5'b0)
-				regs[WriteAddr] <= WriteData;
-		end
-	end	
+module ProcessadorMIPSMono(ALUOp, func, ALUCtrl);
+    // Descrição das portas
+    input  wire [3:0] ALUOp;      // Código da operação da ULA (derivado do opcode da instrução)
+    input  wire [5:0] func;		// Campo funct para instruções do tipo R
+    output reg  [3:0] ALUCtrl; 	// Código da operação que será executada na ULA
 
+    // Bloco combinacional: Define o controle da ULA com base na operação
+    always @(*) begin
+        case(ALUOp)
+            4'b1111: begin // Instruções do tipo R
+                case(func)
+                    6'b000000: ALUCtrl = 4'b1001; // SLL (Shift Left Logical)
+                    6'b000010: ALUCtrl = 4'b1010; // SRL (Shift Right Logical)
+                    6'b000011: ALUCtrl = 4'b1101; // SRA (Shift Right Arithmetic)
+                    6'b000100: ALUCtrl = 4'b0011; // SLLV (Shift Left Logical Variable)
+                    6'b000110: ALUCtrl = 4'b0100; // SRLV (Shift Right Logical Variable)
+                    6'b000111: ALUCtrl = 4'b0101; // SRAV (Shift Right Arithmetic Variable)
+                    6'b100000: ALUCtrl = 4'b0010; // ADD
+                    6'b100010: ALUCtrl = 4'b0110; // SUB
+                    6'b100100: ALUCtrl = 4'b0000; // AND
+                    6'b100101: ALUCtrl = 4'b0001; // OR
+                    6'b100110: ALUCtrl = 4'b1011; // XOR
+                    6'b100111: ALUCtrl = 4'b1100; // NOR
+                    6'b101010: ALUCtrl = 4'b0111; // SLT
+                    6'b101011: ALUCtrl = 4'b1111; // SLTU
+                    default:   ALUCtrl = 4'bxxxx; // Operação indefinida
+                endcase
+            end
+            4'b0100: ALUCtrl = 4'b0110; // BEQ (Subtração para comparação)
+            4'b0101: ALUCtrl = 4'b1000; // BNE (Tratamento especial)
+            4'b1000: ALUCtrl = 4'b0010; // ADDI (Soma imediata)
+            4'b1010: ALUCtrl = 4'b0111; // SLTI (Set Less Than Immediate)
+            4'b1011: ALUCtrl = 4'b1111; // SLTIU (Set Less Than Immediate Unsigned)
+            4'b1100: ALUCtrl = 4'b0000; // ANDI (AND imediato)
+            4'b1101: ALUCtrl = 4'b0001; // ORI (OR imediato)
+            4'b1110: ALUCtrl = 4'b1011; // XORI (XOR imediato)
+            default: ALUCtrl = 4'b0010; // Operação padrão (lw/sw fazem soma)
+        endcase
+    end
 endmodule
