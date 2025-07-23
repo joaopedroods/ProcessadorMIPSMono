@@ -1,15 +1,30 @@
 /*
-Arquitetura e Organização de Computadores 2025.1 - Projeto da 2ª VA
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
 
-Integrantes do grupo:
-1. Giovanna Neves
-2. João Pedro Oliveira da Silva
-3. José Albérico
-4. Lucas Lins
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      regfile.v
+Módulo:       regfile
 
-Conteúdo do arquivo:
-
-Este arquivo contém o Program Counter (PC), um registrador ... (a terminar)
+Descrição:
+              Implementa o Banco de Registradores (Register File) do MIPS,
+              que armazena os 32 registradores de 32 bits. O módulo possui
+              duas portas de leitura assíncronas e uma porta de escrita síncrona,
+              controlada pelo sinal 'RegWrite'. Garante que o registrador $0
+              seja sempre zero e implementa um reset assíncrono para zerar
+              todos os dados.
+================================================================================
 */
 
 module regfile (ReadAddr1, ReadAddr2, ReadData1, ReadData2, Clock, WriteAddr, WriteData, RegWrite, Reset);
