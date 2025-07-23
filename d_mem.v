@@ -1,13 +1,30 @@
 /*
-Arquitetura e Organização de Computadores 2025.1 - Projeto da 2ª VA
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
 
-Integrantes do grupo:
-1. Giovanna Neves
-2. João Pedro Oliveira da Silva
-3. José Albérico
-4. Lucas Lins
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      d_mem.v
+Módulo:       d_mem
 
-Conteúdo do arquivo:
+Descrição:
+              Implementa a Memória de Dados (RAM) do processador. O módulo
+              permite leitura e escrita assíncronas, controladas pelos sinais
+              'MemRead' e 'MemWrite'. O endereço em bytes é convertido para um
+              índice de palavra. A saída de dados fica em alta impedância ('z')
+              quando a leitura não está habilitada, e o módulo inclui uma
+              verificação de acesso fora dos limites da memória.
+================================================================================
 */
 
 module d_mem(Address, WriteData, ReadData, MemWrite, MemRead);
