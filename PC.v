@@ -1,15 +1,28 @@
 /*
-Arquitetura e Organização de Computadores 2025.1 - Projeto da 2ª VA
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
 
-Integrantes do grupo:
-1. Giovanna Neves
-2. João Pedro Oliveira da Silva
-3. José Albérico
-4. Lucas Lins
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      PC.v
+Módulo:       PC
 
-Conteúdo do arquivo:
-
-Este arquivo contém o Program Counter (PC), um registrador ... (a terminar)
+Descrição:
+              Este módulo implementa o Contador de Programa (Program Counter - PC)
+              do processador MIPS. É um registrador de 32 bits que armazena o
+              endereço da instrução a ser buscada na memória de instrução.
+              A cada borda de subida do clock, o PC é atualizado com o valor
+              presente na sua entrada 'nextPC'.
 */
 
 module PC(clock, nextPC, PC);
