@@ -1,13 +1,29 @@
 /*
-Arquitetura e Organização de Computadores 2025.1 - Projeto da 2ª VA
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
 
-Integrantes do grupo:
-1. Giovanna Neves
-2. João Pedro Oliveira da Silva
-3. José Albérico
-4. Lucas Lins
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      ula_ctrl.v
+Módulo:       ula_ctrl
 
-Conteúdo do arquivo:
+Descrição:
+              Implementa a unidade de Controle da ULA. Este bloco combinacional
+              atua como um decodificador, gerando o sinal de 4 bits 'ALUCtrl'
+              para a ULA. Ele utiliza o sinal 'ALUOp' (da unidade de controle
+              principal) e, para as instruções do Tipo-R, o campo 'func' da
+              instrução para determinar a operação exata a ser realizada.
+================================================================================
 */
 
 module ula_ctrl(ALUOp, func, ALUCtrl);
