@@ -10,7 +10,7 @@ Integrantes do grupo:
 Conteúdo do arquivo:
 */
 
-module ProcessadorMIPSMono(Address, WriteData, ReadData, MemWrite, MemRead);
+module d_mem(Address, WriteData, ReadData, MemWrite, MemRead);
 
 // Descrição das portas
 	input wire [31:0] Address, WriteData;
