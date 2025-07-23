@@ -25,16 +25,20 @@ Descrição:
               presente na sua entrada 'nextPC'.
 */
 
-module PC(clock, nextPC, PC);
+module PC(clock, nextPC, PC, reset);
 
 // Descrição das entradas e saídas
 	input wire clock;
 	input wire [31:0] nextPC;
 	output reg [31:0] PC;	
+	output reset;
 	
 // Descrição do comportamento
 	always @(posedge clock) begin // Atualização do PC na borda de subida do clock
-		PC <= nextPC;
+		if (reset)
+			PC <= 32'b0;
+		else
+			PC <= nextPC;
 	end
 
 endmodule
