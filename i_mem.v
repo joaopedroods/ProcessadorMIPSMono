@@ -1,13 +1,29 @@
 /*
-Arquitetura e Organização de Computadores 2025.1 - Projeto da 2ª VA
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
 
-Integrantes do grupo:
-1. Giovanna Neves
-2. João Pedro Oliveira da Silva
-3. José Albérico
-4. Lucas Lins
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      i_mem.v
+Módulo:       i_mem
 
-Conteúdo do arquivo:
+Descrição:
+              Implementa a Memória de Instrução (ROM) do processador. O módulo
+              é inicializado no início da simulação com os dados do arquivo
+              'instruction.list'. A leitura é assíncrona, e o endereço de
+              entrada (em bytes) é convertido para um índice de palavra
+              (dividido por 4) para acessar a memória.
+================================================================================
 */
 
 module i_mem(address, i_out);
