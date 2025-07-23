@@ -1,4 +1,4 @@
-module ProcessadorMIPSMono (opcode, RegDst, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite, Jump, Link);
+module ctrl (opcode, RegDst, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite, Jump, Link);
 
 // Descrição das portas
 	input wire [5:0] opcode;
