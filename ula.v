@@ -1,13 +1,29 @@
 /*
-Arquitetura e Organização de Computadores 2025.1 - Projeto da 2ª VA
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
 
-Integrantes do grupo:
-1. Giovanna Neves
-2. João Pedro Oliveira da Silva
-3. José Albérico
-4. Lucas Lins
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      ula.v
+Módulo:       ula
 
-Conteúdo do arquivo:
+Descrição:
+              Implementa a Unidade Lógica e Aritmética (ULA) do processador MIPS.
+              Este bloco combinacional executa operações lógicas (AND, OR, XOR, NOR), 
+	      aritméticas (soma, subtração), deslocamento (SLLV, SRLV, SRAV) e de 
+              comparação (SLT, SLTU), selecionadas pelo sinal de controle 'OP'. A 
+	      saída 'zero_flag' é otimizada para os desvios condicionais BEQ e BNE.
+================================================================================
 */
 
 module ula(in1, in2, OP, result, zero_flag);
