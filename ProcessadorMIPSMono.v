@@ -1,3 +1,30 @@
+/*
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
+
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      ProcessadorMIPSMono.v
+Módulo:       ProcessadorMIPSMono
+
+Descrição:
+              Este é o módulo Top-Level do processador MIPS monociclo. Ele é
+              responsável por instanciar e interconectar todos os componentes
+              do caminho de dados e da unidade de controle, formando o
+              processador completo. As saídas expostas são para fins de
+              depuração e verificação no testbench.
+================================================================================
+*/
 module ProcessadorMIPSMono(ula_in1, ula_in2, ALU_out, d_mem_out, PC_out, clock, reset_global);
 
 	//Descrição das entradas e saídas:
