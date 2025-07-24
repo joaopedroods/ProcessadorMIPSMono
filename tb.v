@@ -1,3 +1,35 @@
+/*
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
+
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      testbench.v
+Módulo:       tb
+
+Descrição:
+              Arquivo de Testbench para o Processador MIPS Monociclo.
+              Este módulo não é sintetizável e serve exclusivamente para simular
+              e verificar o funcionamento do projeto completo.
+
+              Ele é responsável por:
+              1. Instanciar o processador (a 'Unit Under Test' - UUT).
+              2. Gerar o sinal de 'clock' global.
+              3. Aplicar um pulso de 'reset' no início da simulação.
+              4. Definir o tempo total de simulação.
+================================================================================
+*/
+
 `timescale 1ns/1ps
 
 module tb;
