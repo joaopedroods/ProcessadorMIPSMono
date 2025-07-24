@@ -1,3 +1,32 @@
+/*
+================================================================================
+==                        Informações do Projeto                        ==
+================================================================================
+Disciplina:   Arquitetura e Organização de Computadores (2025.1)
+Professor:    Vítor A. Coutinho
+Projeto:      Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+              - Giovanna Neves
+              - João Pedro Oliveira da Silva
+              - José Albérico
+              - Lucas Lins
+
+================================================================================
+==                        Informações do Arquivo                        ==
+================================================================================
+Arquivo:      control.v
+Módulo:       ctrl
+
+Descrição:
+              Implementa a Unidade de Controle principal do processador MIPS.
+              Este bloco combinacional decodifica o 'opcode' da instrução para
+              gerar todos os sinais que governam o caminho de dados, como
+              habilitação de escrita, seleção de multiplexadores e a operação
+              da ULA. É o componente central que dita o comportamento do
+              processador para cada tipo de instrução.
+================================================================================
+*/
+
 module ctrl (opcode, RegDst, Branch, MemRead, MemToReg, ALUOp, MemWrite, ALUSrc, RegWrite, Jump, Link);
 
 // Descrição das portas
