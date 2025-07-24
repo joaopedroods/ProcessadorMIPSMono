@@ -44,7 +44,7 @@ O bloco "initial begin ... end" é executado uma única vez no início da simula
 para ler arquivos com binários. Esses dados vão preencher o vetor memoria_ROM
 */
 	initial begin
-		$readmemb("instruction.list", memoria_ROM);
+		$readmemb("C:\\Users\\Acer\\Desktop\\ProcessadorMIPSMono\\instructions.list", memoria_ROM);
 	end
 	
 // Leitura assíncrona da memória ROM, indexando por address dividido por 4
