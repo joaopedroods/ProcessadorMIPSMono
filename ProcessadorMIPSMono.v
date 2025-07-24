@@ -112,7 +112,7 @@ module ProcessadorMIPSMono(ula_in1, ula_in2, ALU_out, d_mem_out, PC_out, clock, 
 	.WriteData(valor_reg2),       // Entrada:  cabo de saída do read data 2 do regfile
 	.ReadData(cabo_d_mem_out),    // Saída:    cabo de saída do d_mem que vai parao o mux_valor_write_data
 	.MemWrite(MemWrite),          // Entrada:  cabo da unidade de controle contendo o sinal indicando se deve ou não haver escrita
-	.MemRead(MemRead),            // Entrada:  cabo da unidade de controle contendo o sinal indicando se deve ou não haver leitura
+	.MemRead(MemRead)            // Entrada:  cabo da unidade de controle contendo o sinal indicando se deve ou não haver leitura
 	);
 	
 	//Declaração da instância do Banco de Registradores
