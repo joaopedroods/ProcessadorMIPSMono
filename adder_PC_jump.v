@@ -1,3 +1,31 @@
+/*
+================================================================================
+==                      Informações do Projeto                      ==
+================================================================================
+Disciplina:     Arquitetura e Organização de Computadores (2025.1)
+Professor:      Vítor A. Coutinho
+Projeto:        Implementação de um Processador MIPS Monociclo (Projeto da 2ª VA)
+Grupo:
+                - Giovanna Neves
+                - João Pedro Oliveira da Silva
+                - José Albérico
+                - Lucas Lins
+
+================================================================================
+==                      Informações do Arquivo                      ==
+================================================================================
+Arquivo:        adder_PC_jump.v
+Módulo:         adder_PC_jump
+
+Descrição:
+                Implementa o somador que calcula o endereço de destino para
+                instruções de desvio (branch e jump). Este bloco combinacional
+                soma o valor do Program Counter (PC) com um deslocamento (offset)
+                para gerar o endereço final, seguindo a lógica:
+                endereco_jump = endereco_PC + endereco_deslocado.
+================================================================================
+*/
+
 module adder_PC_jump (endereco_PC, endereco_deslocado, endereco_jump);
 
 	// Descrição das entradas e saídas:
